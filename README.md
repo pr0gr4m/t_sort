@@ -10,17 +10,17 @@ Build
 all
 -----
 
-'''
+```
  $cd src/
 
  $make
-'''
+```
 
 
 part
 -----
 
-'''
+```
  $make merge
 
  $make insert
@@ -28,7 +28,7 @@ part
  $make shell
 
  $make nos
-'''
+```
 
 
 
@@ -40,7 +40,7 @@ Usage
 
 예시)
 
-'''
+```
  $./merge
 
  >>6
@@ -54,7 +54,8 @@ Usage
  >>444
 
  >>-5
-'''
+```
+
 
 
 Output
