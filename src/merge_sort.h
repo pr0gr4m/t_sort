@@ -3,6 +3,6 @@
 
 #include "common.h"
 
-void merge_sort(int arr[], int left, int right);
+void merge_sort(int arr[], int left, int right, int (*comp)(int a, int b));
 
 #endif

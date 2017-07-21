@@ -1,6 +1,6 @@
 #include "merge_sort.h"
 
-static void merge(int arr[], int left, int mid, int right)
+static void merge(int arr[], int left, int mid, int right, int (*comp)(int a, int b))
 {
 	int fidx = left;
 	int ridx = mid + 1;
@@ -11,7 +11,7 @@ static void merge(int arr[], int left, int mid, int right)
 
 	while (fidx <= mid && ridx <= right)
 	{
-		if (arr[fidx] <= arr[ridx])
+		if (comp(arr[fidx], arr[ridx]) <= 0)
 			sort_arr[sidx] = arr[fidx++];
 		else
 			sort_arr[sidx] = arr[ridx++];
@@ -36,7 +36,7 @@ static void merge(int arr[], int left, int mid, int right)
 	free(sort_arr);
 }
 
-void merge_sort(int arr[], int left, int right)
+void merge_sort(int arr[], int left, int right, int (*comp)(int a, int b))
 {
 	int mid;
 
@@ -44,9 +44,9 @@ void merge_sort(int arr[], int left, int right)
 	{
 		mid = (left + right) / 2;
 
-		merge_sort(arr, left, mid);
-		merge_sort(arr, mid + 1, right);
+		merge_sort(arr, left, mid, comp);
+		merge_sort(arr, mid + 1, right, comp);
 
-		merge(arr, left, mid, right);
+		merge(arr, left, mid, right, comp);
 	}
 }

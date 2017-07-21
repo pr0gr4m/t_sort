@@ -4,19 +4,32 @@
 # include gerneral Makefile configuration file
 include Makefile.inc
 
-# object file list
-OBJECTS = main.o merge_sort.o io.o
+# source file list
+SOURCES = main.c comp.c io.c \
+		  insert_sort.c shell_sort.c \
+		  merge_sort.c no_sort.c
 
-# execute file list
-EXE = merge
+# execute file
 
-all : ${EXE}
+NORM = merge
+
+all : ${NORM}
+
+insert : ${SOURCES}
+	${CC} ${CFLAGS} -DINSERT -o $@ $^
+
+shell : ${SOURCES}
+	${CC} ${CFLAGS} -DSHELL -o $@ $^
+
+merge : ${SOURCES}
+	${CC} ${CFLAGS} -DMERGE -o $@ $^
+
+nos : ${SOURCES}
+	${CC} ${CFLAGS} -DNOSORT -o $@ $^
 
 clean : 
-	${RM} *.o ${EXE}
+	${RM} *.o insert shell merge nos
 
 showall :
 	@ echo ${EXE}
 
-${EXE} : ${OBJECTS}
-	${CC} ${CFLAGS} -o $@ $^
