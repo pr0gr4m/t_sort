@@ -11,9 +11,9 @@ SOURCES = main.c comp.c io.c \
 
 # execute file
 
-NORM = merge
+EXE = insert shell merge nos
 
-all : ${NORM}
+all : ${EXE}
 
 insert : ${SOURCES}
 	${CC} ${CFLAGS} -DINSERT -o $@ $^
@@ -28,7 +28,7 @@ nos : ${SOURCES}
 	${CC} ${CFLAGS} -DNOSORT -o $@ $^
 
 clean : 
-	${RM} *.o insert shell merge nos
+	${RM} *.o ${EXE}
 
 showall :
 	@ echo ${EXE}
