@@ -10,29 +10,25 @@ Build
 all
 -----
 
-"'
+'''
+ $cd src/
 
-$cd src/
-
-$make
-
-"'
+ $make
+'''
 
 
 part
 -----
 
-"'
+'''
+ $make merge
 
-$make merge
+ $make insert
 
-$make insert
+ $make shell
 
-$make shell
-
-$make nos
-
-"'
+ $make nos
+'''
 
 
 
@@ -44,22 +40,21 @@ Usage
 
 예시)
 
-"'
+'''
+ $./merge
 
-$./merge
+ >>6
 
->>6
+ >>24
 
->>24
+ >>8231
 
->>8231
+ >>3
 
->>3
+ >>444
 
->>444
-
->>-5
-
+ >>-5
+'''
 
 
 Output
