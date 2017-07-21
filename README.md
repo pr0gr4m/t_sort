@@ -1,2 +1,6 @@
 # t_sort
-merge sort and optimization
+
+Build
+=======
+$cd src/
+$make
