@@ -12,15 +12,32 @@ int init_arr(int arr[])
 			break;
 		arr[len++] = num;
 	}
+
+#ifdef COMP
+	for (int i = 1; i < ARR_EXT; i++)
+	{
+		for (int j = 0; j < len; j++)
+		{
+			arr[(i * len) + j] = arr[j];
+		}
+	}
+#endif
 	putchar('\n');
 	return len;
 }
 
 void print_arr(int arr[], int len)
 {
+#ifdef COMP
+	for (int i = 0; i < ARR_EXT * len; i += ARR_EXT)
+	{
+		printf(" %d ", arr[i]);
+	}
+#else
 	for (int i = 0; i < len; i++)
 	{
 		printf(" %d ", arr[i]);
 	}
-	putchar('\n');
+#endif
+	puts("\n");
 }

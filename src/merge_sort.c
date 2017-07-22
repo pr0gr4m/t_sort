@@ -50,3 +50,15 @@ void merge_sort(int arr[], int left, int right, int (*comp)(int a, int b))
 		merge(arr, left, mid, right, comp);
 	}
 }
+
+void merge_sort_ex(int arr[], int left, int right, int (*comp)(int a, int b))
+{
+	struct timespec start, end;
+	clock_gettime(CLOCK_REALTIME, &start);
+	merge_sort(arr, left, right, comp);
+	clock_gettime(CLOCK_REALTIME, &end);
+
+	printf("\tTime to merge sort : %lds.%ldns\n",
+			(long)(end.tv_sec - start.tv_sec),
+			end.tv_nsec - start.tv_nsec);
+}

@@ -2,8 +2,11 @@
 
 void shell_sort(int arr[], int len, int (*comp)(int a, int b))
 {
+	struct timespec start, end;
 	int i, j, k, gap, tmp;
-	for (gap = len / 2; gap > 0; gap /= 2)
+	clock_gettime(CLOCK_REALTIME, &start);
+
+	for (gap = len; gap > 1; gap = gap / 3 + 1)
 	{
 		for (i = 0; i < gap; i++)
 		{
@@ -21,4 +24,10 @@ void shell_sort(int arr[], int len, int (*comp)(int a, int b))
 			}
 		}
 	}
+
+	clock_gettime(CLOCK_REALTIME, &end);
+
+	printf("\tTime to shell sort %lds.%ldns\n",
+			(long)(end.tv_sec - start.tv_sec),
+			end.tv_nsec - start.tv_nsec);
 }

@@ -11,7 +11,7 @@ SOURCES = main.c comp.c io.c \
 
 # execute file
 
-EXE = insert shell merge nos
+EXE = insert shell merge nos comp
 
 all : ${EXE}
 
@@ -23,6 +23,9 @@ shell : ${SOURCES}
 
 merge : ${SOURCES}
 	${CC} ${CFLAGS} -DMERGE -o $@ $^
+
+comp : ${SOURCES}
+	${CC} ${CFLAGS} -DCOMP -o $@ $^
 
 nos : ${SOURCES}
 	${CC} ${CFLAGS} -DNOSORT -o $@ $^

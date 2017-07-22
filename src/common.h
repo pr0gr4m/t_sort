@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include <time.h>
 
 #define TRUE    1
 #define FALSE   0
@@ -12,6 +14,7 @@
 #define RET_ERR 2
 
 #define ARR_LEN	20
+#define ARR_EXT	100
 
 /*
  * Print macro function for debugging

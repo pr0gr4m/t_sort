@@ -4,5 +4,6 @@
 #include "common.h"
 
 void merge_sort(int arr[], int left, int right, int (*comp)(int a, int b));
+void merge_sort_ex(int arr[], int left, int right, int (*comp)(int a, int b));
 
 #endif
